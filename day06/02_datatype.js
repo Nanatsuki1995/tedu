@@ -1,0 +1,13 @@
+console.log(1.23456E3);
+console.log(123456e-2);
+console.log(typeof(2));
+console.log(typeof('hello'));
+console.log('健'.charCodeAt());
+console.log(1<0);
+console.log(typeof(true));
+var total;
+console.log(typeof(total));
+var product1=20*3;
+var product2=18*8;
+total=product1+product2;
+console.log(total);
