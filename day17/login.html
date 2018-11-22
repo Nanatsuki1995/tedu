@@ -1,0 +1,14 @@
+<h1>登录页面</h1>
+<!--
+form:用于表单提交 
+action:向服务器请求的URL
+method:向服务器请求的方法
+服务器端需要有对应的路由来接受请求
+
+name给当前的数据器名字，后台根据名字找到对应的数据
+-->
+<form action = "/mylogin" method = "get">
+    用户：<input type = "text" name = "uname"><br>
+    密码：<input type = "text" name = "upwd"><br>
+    <input type = "submit">
+</form>
