@@ -7,7 +7,7 @@ server.listen(3000)
 
 server.use(express.static('public'))
 
-server.post('/idCheck',(req,res,next)=>{
+server.use('/idCheck',(req,res,next)=>{
     req.on('data',(buf)=>{
         var str = buf.toString()
         var obj = querystring.parse(str)
@@ -19,6 +19,6 @@ server.post('/idCheck',(req,res,next)=>{
     })
 })
 
-server.use('/idCheck',(req,res,next)=>{
+server.post('/idCheck',(req,res,next)=>{
     res.send(year+'年'+month+'月'+date+'日 '+sex)
 })
