@@ -1,3 +1,9 @@
+/*
+ * @Author: zengjian 
+ * @Date: 2018-11-24 10:32:04 
+ * @Last Modified by:   zengjian 
+ * @Last Modified time: 2018-11-24 10:32:04 
+ */
 const mysql = require('mysql')
 //创建连接池对象
 var pool = mysql.createPool({

@@ -28,6 +28,10 @@ router.post('/register',(req,res)=>{
         return
     }
     //执行sql语句，将注册的数据插入到xz_user数据表中，成功响应{code:200,msg:'register success'}
+    pool.query('INSERT INTO xz_user SET ?',[obj],(err,result)=>{
+        if (err) throw err
+        
+    })
     res.send('注册成功')
 })
 //导出路由器
