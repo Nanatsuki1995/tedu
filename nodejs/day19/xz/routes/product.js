@@ -2,7 +2,7 @@
  * @Author: zengjian 
  * @Date: 2018-11-26 15:28:53 
  * @Last Modified by: zengjian
- * @Last Modified time: 2018-11-26 18:47:13
+ * @Last Modified time: 2018-11-26 19:36:52
  */
 //导入连接池
 const pool = require('../pool')
@@ -87,13 +87,13 @@ router.get('/add',(req,res)=>{
 //5.完成商品更改
 router.get('/update',(req,res)=>{
     var obj = req.query
-    var obj1 = {}
-    for(let keys in obj){
-        if (keys != 'lid') {
-            obj1[keys] = obj[keys]
-        }
-    }
-    pool.query('UPDATE xz_laptop SET ? WHERE lid = ?',[obj1,obj.lid],(err,result)=>{
+    // var obj1 = {}
+    // for(let keys in obj){
+    //     if (keys != 'lid') {
+    //         obj1[keys] = obj[keys]
+    //     }
+    // }
+    pool.query('UPDATE xz_laptop SET ? WHERE lid = ?',[obj,obj.lid],(err,result)=>{
         if (err) throw err
         if (result.affectedRows > 0) {
             res.send({code:200,msg:'update success'})
