@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        <div>
+            用户名称：<input type="text" placeholder="用户名8~20个字符" name="uname"><br>
+        </div>
+        <div>
+            用户密码：<input type="password" placeholder="用户密码6~12个字符" name="upwd"><br>
+        </div>
+
+        <input type="radio" name="gender" checked value="M">男
+        <input type="radio" name="gender" value="F">女
+        <input type="radio" name="gender" value="un">不确定
+        <input type="radio" name="like" checked value="y">喜欢
+        <input type="radio" name="like" value="n">不喜欢
+        <input type="radio" name="like" value="un">平淡
+        <p>兴趣爱好</p>
+        <input type="checkbox" name="hobby[]" value="eat">吃
+        <input type="checkbox" name="hobby[]" value="drink">喝
+        <input type="checkbox" name="hobby[]" value="play">玩
+        <input type="checkbox" name="hobby[]" value="happy">乐
+        <input type="checkbox" name="hobby[]" value="sleep">睡
+        <hr>
+        <input type="hidden" name="uid" value="dn1810111">
+        <hr>
+        <p>请上传你的头像</p>
+        <input type="file" name="me[]" multiple>
+        <input type="submit" value="登录">
+        <input type="reset" value="重置">
+        <input type="button" onclick="show()" value="点点我试试">
+        <button onclick="show()">我是button按钮</button>
+    </form>
+    <script>
+        function show(){
+            alert('试试就试试')
+        }
+    </script>
+</body>
+</html>
