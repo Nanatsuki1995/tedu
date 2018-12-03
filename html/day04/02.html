@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id = "d1">我是一个div</div>
+    <input onclick="show()" type="button" value="你不是一个正经的div">
+    <script>
+        var num = 0
+        function show() {
+            //d1.innerHTML = '你不是一个正经的div'
+            num++
+            d1.innerHTML = num
+        }
+    </script>
+</body>
+</html>

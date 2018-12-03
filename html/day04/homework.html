@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>作业</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="d1">打印我</div>
+    <input type="button" value="打印" onclick="dy()">
+    <div id="d2">改变前的我</div>
+    <input type="button" value="改变" onclick="gb()">
+    <script>
+        function dy() {
+            console.log(d1.innerHTML)
+        }
+        function gb() {
+            d2.innerHTML = '改变后的我'
+        }
+    </script>
+</body>
+</html>
