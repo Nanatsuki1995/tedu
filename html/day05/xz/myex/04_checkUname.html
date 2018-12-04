@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+</head>
+<body>
+    <input type="text" onblur="checkUname()" id="uname"><div id="d1"></div>
+    <script>
+        function checkUname() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    d1.innerHTML = xhr.responseText
+                }
+            }
+            xhr.open('get','/demo/check?uname='+uname.value,true)
+            xhr.send(null)
+        }
+    </script>
+</body>
+</html>

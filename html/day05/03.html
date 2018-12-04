@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body onload="txt_focus()">
+    <div>
+        用户名称：
+        <input type="text" id="uname" onblur="txt_blur()">
+        <span id="showUname"></span>
+    </div>
+    <div>
+        用户密码：
+        <input type="password" id="upwd" onfocus="txt_focus()">
+        <span id="showUpwd"></span>
+    </div>
+    <script>
+        function txt_blur() {
+            //获得文本框value
+            var userName = uname.value
+            //判断value是否为空，把对应的文本提示写入span
+            if (userName == '') {
+                showUname.innerHTML = '用户名不能为空'
+            }else{
+                showUname.innerHTML = uname.value
+            }
+        }
+        function txt_focus() {
+            var userPwd = upwd.value
+            //判断value是否为空，把对应的文本提示写入span
+            if (userPwd == '') {
+                showUpwd.innerHTML = '密码6~12位'
+            }else{
+                showUpwd.innerHTML = upwd.value
+            }
+        }
+    </script>
+</body>
+</html>
