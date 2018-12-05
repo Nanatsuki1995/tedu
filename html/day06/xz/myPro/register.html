@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+</head>
+<body>
+        <div>
+            用户名称：
+            <input type="text" id="uname" onblur="unameCheck()" onfocus="unameClean()">
+            <div id="un"></div>
+        </div>
+        <div>
+            用户密码：
+            <input type="password" id="upwd" onblur="upwdCheck()" onfocus="upwdClean()">
+            <div id="up"></div>
+        </div>
+        <div>
+            邮箱：
+            <input type="email" id="email" onblur="emailCheck()" onfocus="emailClean()">
+            <div id="em"></div>
+        </div>
+        <div>
+            手机号：
+            <input type="text" id="phone" onblur="phoneCheck()" onfocus="phoneClean()">
+            <div id="ph"></div>
+        </div>
+        <input type="button" value="注册" onclick="register()">
+        <div id="d1"></div>
+    <script>
+        function unameCheck() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    un.innerHTML = xhr.responseText
+                }
+            }
+            var formdata = `uname=${uname.value}`
+            xhr.open('post','/myPro/unameCheck',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+
+        function unameClean() {
+            un.innerHTML = ''
+        }
+
+        function upwdCheck() {
+            if (!upwd.value) {
+                up.innerHTML = '密码不能为空'
+            }
+        }
+
+        function upwdClean() {
+            up.innerHTML = ''
+        }
+
+        function emailCheck() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    em.innerHTML = xhr.responseText
+                }
+            }
+            var formdata = `email=${email.value}`
+            xhr.open('post','/myPro/emailCheck',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+
+        function emailClean() {
+            em.innerHTML = ''
+        }
+
+        function phoneCheck() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    ph.innerHTML = xhr.responseText
+                }
+            }
+            var formdata = `phone=${phone.value}`
+            xhr.open('post','/myPro/phoneCheck',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+
+        function phoneClean() {
+            ph.innerHTML = ''
+        }
+
+        function register() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    d1.innerHTML = xhr.responseText
+                }
+            }
+            var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value}&phone=${phone.value}`
+            xhr.open('post','/myPro/register',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+    </script>
+</body>
+</html>

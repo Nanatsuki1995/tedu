@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+</head>
+<body>
+    <div>
+        用户名：
+        <input type="text" id="uname" onblur="unameCheck()" onfocus="unclean()">
+        <div id="un"></div>
+    </div>
+    <div>
+        密码&nbsp;&nbsp;&nbsp;：
+        <input type="password" id="upwd" onblur="upwdCheck()" onfocus="upclean()">
+        <div id="up"></div>
+    </div>
+    <div>
+        <input type="button" value="登录" onclick="push()">
+    </div>
+    <div id="msg"></div>
+    <script>
+        function unameCheck() {
+            var $uname = uname.value
+            if (!$uname) {
+                un.innerHTML = '用户名不能为空'
+            }
+        }
+        function upwdCheck() {
+            var $upwd = upwd.value
+            if (!$upwd) {
+                up.innerHTML = '密码不能为空'
+            }
+        }
+        function unclean() {
+            un.innerHTML = ''
+        }
+        function upclean() {
+            up.innerHTML = ''
+        }
+        function push() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    msg.innerHTML = xhr.responseText
+                }
+            }
+            var formdata = 'uname='+uname.value+'&upwd='+upwd.value
+            xhr.open('post','/myPro/login',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+    </script>
+</body>
+</html>
