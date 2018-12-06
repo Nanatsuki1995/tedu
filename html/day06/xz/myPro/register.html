@@ -8,22 +8,22 @@
         <div>
             用户名称：
             <input type="text" id="uname" onblur="unameCheck()" onfocus="unameClean()">
-            <div id="un"></div>
+            <div id="un"><br></div>
         </div>
         <div>
             用户密码：
             <input type="password" id="upwd" onblur="upwdCheck()" onfocus="upwdClean()">
-            <div id="up"></div>
+            <div id="up"><br></div>
         </div>
         <div>
             邮箱：
             <input type="email" id="email" onblur="emailCheck()" onfocus="emailClean()">
-            <div id="em"></div>
+            <div id="em"><br></div>
         </div>
         <div>
             手机号：
             <input type="text" id="phone" onblur="phoneCheck()" onfocus="phoneClean()">
-            <div id="ph"></div>
+            <div id="ph"><br></div>
         </div>
         <input type="button" value="注册" onclick="register()">
         <div id="d1"></div>
@@ -32,7 +32,16 @@
             var xhr = new XMLHttpRequest()
             xhr.onreadystatechange = function(){
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    un.innerHTML = xhr.responseText
+                    if (xhr.responseText == 1) {
+                        un.innerHTML = '用户名不能为空'
+                        unIspass = 1
+                    } else if (xhr.responseText == 2) {
+                        un.innerHTML = '用户名已被注册'
+                        unIspass = 2
+                    } else {
+                        un.innerHTML = '用户名可用'
+                        unIspass = 0
+                    }
                 }
             }
             var formdata = `uname=${uname.value}`
@@ -42,7 +51,7 @@
         }
 
         function unameClean() {
-            un.innerHTML = ''
+            un.innerHTML = '<br>'
         }
 
         function upwdCheck() {
@@ -52,14 +61,23 @@
         }
 
         function upwdClean() {
-            up.innerHTML = ''
+            up.innerHTML = '<br>'
         }
 
         function emailCheck() {
             var xhr = new XMLHttpRequest()
             xhr.onreadystatechange = function(){
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    em.innerHTML = xhr.responseText
+                    if (xhr.responseText == 1) {
+                        em.innerHTML = '邮箱不能为空'
+                        emIspass = 1
+                    } else if (xhr.responseText == 2) {
+                        em.innerHTML = '邮箱已被注册'
+                        emIspass = 2
+                    } else {
+                        em.innerHTML = '邮箱可用'
+                        emIspass = 0
+                    }
                 }
             }
             var formdata = `email=${email.value}`
@@ -69,14 +87,23 @@
         }
 
         function emailClean() {
-            em.innerHTML = ''
+            em.innerHTML = '<br>'
         }
 
         function phoneCheck() {
             var xhr = new XMLHttpRequest()
             xhr.onreadystatechange = function(){
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    ph.innerHTML = xhr.responseText
+                    if (xhr.responseText == 1) {
+                        ph.innerHTML = '手机号不能为空'
+                        phIspass = 1
+                    } else if (xhr.responseText == 2) {
+                        ph.innerHTML = '手机号已被注册'
+                        phIspass = 2
+                    } else {
+                        ph.innerHTML = '手机号可用'
+                        phIspass = 0
+                    }
                 }
             }
             var formdata = `phone=${phone.value}`
@@ -86,20 +113,45 @@
         }
 
         function phoneClean() {
-            ph.innerHTML = ''
+            ph.innerHTML = '<br>'
+        }
+
+        function ispass() {
+            ispass = unIspass + emIspass + phIspass
         }
 
         function register() {
-            var xhr = new XMLHttpRequest()
-            xhr.onreadystatechange = function(){
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    d1.innerHTML = xhr.responseText
+            ispass()
+            if (ispass == 0) {
+                var xhr = new XMLHttpRequest()
+                xhr.onreadystatechange = function(){
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        d1.innerHTML = xhr.responseText
+                        setTimeout(()=>{
+                            alert('点击后刷新')
+                            location.reload()
+                        },0)
+                    }
+                }
+                var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value}&phone=${phone.value}`
+                xhr.open('post','/myPro/register',true)
+                xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+                xhr.send(formdata) 
+            } else {
+                if (unIspass == 1) {
+                    alert('用户名不能为空')
+                }else if(unIspass == 2){
+                    alert('用户名已被注册')
+                }else if(emIspass == 1){
+                    alert('邮箱不能为空')
+                }else if(emIspass == 2){
+                    alert('邮箱已被注册')
+                }else if(phIspass == 1){
+                    alert('手机号不能为空')
+                }else if(phIspass == 2){
+                    alert('手机号已被注册')
                 }
             }
-            var formdata = `uname=${uname.value}&upwd=${upwd.value}&email=${email.value}&phone=${phone.value}`
-            xhr.open('post','/myPro/register',true)
-            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
-            xhr.send(formdata)
         }
     </script>
 </body>

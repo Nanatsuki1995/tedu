@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+</head>
+<body onload="updateUser(uid)">
+    <table id="d2" border="1px"></table>
+    <script>
+        var urlParams = new URLSearchParams(location.search)
+        var uid = urlParams.get('uid')
+        console.log(uid)
+        var ispass = false,unIspass,emIspass,phIspass
+        function unameCheck() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    if (xhr.responseText == 1) {
+                        un.innerHTML = '用户名不能为空'
+                        unIspass = false
+                    } else if (xhr.responseText == 2) {
+                        un.innerHTML = '用户名已被注册'
+                        unIspass = false
+                    } else {
+                        un.innerHTML = '用户名可用'
+                        unIspass = true
+                    }  
+                }
+            }
+            var formdata = `uname=${uname.value}`
+            xhr.open('post','/myPro/unameCheck',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+
+        function unameClean() {
+            unIspass = 1
+            un.innerHTML = '<br>'
+        }
+
+        function upwdCheck() {
+            if (!upwd.value) {
+                up.innerHTML = '密码不能为空'
+            }
+        }
+
+        function upwdClean() {
+            up.innerHTML = '<br>'
+        }
+
+        function emailCheck() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    if (xhr.responseText == 1) {
+                        em.innerHTML = '邮箱不能为空'
+                        emIspass = false
+                    } else if (xhr.responseText == 2) {
+                        em.innerHTML = '邮箱已被注册'
+                        emIspass = false
+                    } else {
+                        em.innerHTML = '邮箱可用'
+                        emIspass = true
+                    }  
+                }
+            }
+            var formdata = `email=${email.value}`
+            xhr.open('post','/myPro/emailCheck',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+
+        function emailClean() {
+            emIspass = 1
+            em.innerHTML = '<br>'
+        }
+
+        function phoneCheck() {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    if (xhr.responseText == 1) {
+                        ph.innerHTML = '手机号不能为空'
+                        phIspass = false
+                    } else if (xhr.responseText == 2) {
+                        ph.innerHTML = '手机号已被注册'
+                        phIspass = false
+                    } else {
+                        ph.innerHTML = '手机号可用'
+                        phIspass = true
+                    }
+                }
+            }
+            var formdata = `phone=${phone.value}`
+            xhr.open('post','/myPro/phoneCheck',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)
+        }
+
+        function phoneClean() {
+            phIspass = 1
+            ph.innerHTML = '<br>'
+        }
+
+        function updateUser(uid) {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    d2.innerHTML = `<tr>
+                                        <th>用户名</th>
+                                        <th>用户密码</th>
+                                        <th>邮箱</th>
+                                        <th>电话</th>
+                                        <th>头像</th>
+                                        <th>真实姓名</th>
+                                        <th>性别</th>
+                                        <th>操作</th>
+                                    </tr>`
+                var result = xhr.responseText
+                var arr = JSON.parse(result)
+                    d2.innerHTML += `<tr>
+                                        <td>
+                                            <input type = "text" onblur="unameCheck()" onfocus="unameClean()" value = "${arr[0].uname}" id = "uname">
+                                            <div id = "un"><br></div>
+                                        </td>
+                                        <td>
+                                            <input type = "text" onblur="upwdCheck()" onfocus="upwdClean()" value = "${arr[0].upwd}" id = "upwd">
+                                            <div id = "up"><br></div>
+                                        </td>
+                                        <td>
+                                            <input type = "email" onblur="emailCheck()" onfocus="emailClean()" value = "${arr[0].email}" id = "email">
+                                            <div id = "em"><br></div>
+                                        </td>
+                                        <td>
+                                            <input type = "text" onblur="phoneCheck()" onfocus="phoneClean()" value = "${arr[0].phone}" id = "phone">
+                                            <div id = "ph"></div>
+                                        </td>
+                                        <td><input type = "text" value = "${arr[0].avatar}" id = "avatar"></td>
+                                        <td><input type = "text" value = "${arr[0].user_name}" id = "user_name"></td>
+                                        <td><input type = "text" value = "${arr[0].gender == 1 ?'男':'女'}" id = "gender"></td>
+                                        <td><input type = "button" value = "提交" onclick = "update(${arr[0].uid})"></td>
+                                    </tr>`
+                }
+            } 
+            xhr.open('get','/myPro/update?uid='+uid,true)
+            xhr.send(null)
+            
+        }
+
+        function ispass() {
+            ispass = unIspass + emIspass + phIspass
+        }
+
+        function update(uid) {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var result = xhr.responseText
+                    setTimeout(()=>{
+                        alert(result)
+                        location.href='http://localhost:3000/list.html'
+                    },0)
+                }
+            }
+            var formdata = `uid=${uid}&uname=${uname.value}&upwd=${upwd.value}&email=${email.value}&phone=${phone.value}&avatar=${avatar.value}&user_name=${user_name.value}&gender=${(gender.value=='男'?1:0)}`
+            xhr.open('post','/myPro/upDate',true)
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            xhr.send(formdata)            
+            }
+        </script>
+</body>
+</html>

@@ -50,14 +50,14 @@ router.post('/unameCheck',(req,res)=>{
     var sql = 'select * from xz_user where uname=?'
     pool.query(sql,[$uname],(err,result)=>{
         if (!$uname) {
-            res.send('用户名不能为空')
+            res.send('1')
             return
         }
         if (result.length > 0) {
-            res.send('用户名已被注册')
+            res.send('2')
             return
         } else {
-            res.send('用户名可用')
+            res.send('0')
             return
         }
     })
@@ -69,14 +69,14 @@ router.post('/emailCheck',(req,res)=>{
     var sql = 'select * from xz_user where email=?'
     pool.query(sql,[$email],(err,result)=>{
         if (!$email) {
-            res.send('邮箱不能为空')
+            res.send('1')
             return
         }
         if (result.length > 0) {
-            res.send('邮箱已被注册')
+            res.send('2')
             return
         } else {
-            res.send('邮箱可用')
+            res.send('0')
             return
         }
     })
@@ -88,14 +88,14 @@ router.post('/phoneCheck',(req,res)=>{
     var sql = 'select * from xz_user where phone=?'
     pool.query(sql,[$phone],(err,result)=>{
         if (!$phone) {
-            res.send('手机号不能为空')
+            res.send('1')
             return
         }
         if (result.length > 0) {
-            res.send('手机号已被注册')
+            res.send('2')
             return
         } else {
-            res.send('手机号可用')
+            res.send('0')
             return
         }
     })
@@ -107,7 +107,36 @@ router.get('/delete',(req,res)=>{
     var sql = 'delete from xz_user where uid=?'
     pool.query(sql,[$uid],(err,result)=>{
         if (err) throw err
-        res.send('删除成功')
+        if (result.affectedRows > 0) {
+            res.send('1')
+            return
+        }else{
+            res.send('0')
+            return
+        }
+    })
+})
+
+//修改查询
+router.get('/update',(req,res)=>{
+    var $uid = req.query.uid
+    var sql = 'select * from xz_user where uid = ?'
+    pool.query(sql,[$uid],(err,result)=>{
+        if (result.length > 0) {
+            res.send(result)
+            return
+        }
+    })
+})
+
+router.post('/upDate',(req,res)=>{
+    var obj = req.body
+    var sql = 'update xz_user set uname = ?,upwd = ?,email = ?,phone = ?,avatar = ?,user_name = ?,gender = ? where uid=?'
+    pool.query(sql,[obj.uname,obj.upwd,obj.email,obj.phone,obj.avatar,obj.user_name,obj.gender,obj.uid],(err,result)=>{
+        if (err) throw err
+        if (result.affectedRows > 0) {
+            res.send('修改成功')
+        }
     })
 })
 

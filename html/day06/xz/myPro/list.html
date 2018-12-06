@@ -6,7 +6,28 @@
 </head>
 <body onload="getList()">
     <table id="d1" border="1px"></table>
+    <table id="d2" border="1px"></table>
     <script>
+        function deleteUser(uid) {
+            var xhr = new XMLHttpRequest()
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var result = xhr.responseText
+                    if (result == 1) {
+                        alert('删除成功')
+                        getList()
+                        return
+                    }else{
+                        alert('删除失败')
+                        getList()
+                        return
+                    }
+                }
+            }
+            xhr.open('get','/myPro/delete?uid='+uid,true)
+            xhr.send(null)
+        }
+
         function getList() {
             var xhr = new XMLHttpRequest()
             xhr.onreadystatechange = function(){
@@ -19,27 +40,31 @@
                                         <th>头像</th>
                                         <th>真实姓名</th>
                                         <th>性别</th>
-                                        <th>操作</th>
+                                        <th colspan = "2">操作</th>
                                     </tr>`
                     var result = xhr.responseText
                     var arr = JSON.parse(result)
                     for (const obj of arr) {
                         d1.innerHTML += `<tr>
-                                            <td>${obj.uname}</td>
-                                            <td>${obj.upwd}</td>
-                                            <td>${obj.email}</td>
-                                            <td>${obj.phone}</td>
-                                            <td>${obj.avatar}</td>
-                                            <td>${obj.user_name}</td>
-                                            <td>${obj.gender == 1 ?'男':'女'}</td>
-                                            <td><a href = "/myPro/delete?uid=${obj.uid}">删除</a></td>
-                                        </tr>`
+                                                <td>${obj.uname}</td>
+                                                <td>${obj.upwd}</td>
+                                                <td>${obj.email}</td>
+                                                <td>${obj.phone}</td>
+                                                <td>${obj.avatar}</td>
+                                                <td>${obj.user_name}</td>
+                                                <td>${obj.gender == 1 ?'男':'女'}</td>
+                                                <td><input type = "button" value = "删除" onclick = "deleteUser(${obj.uid})"><a href = "update.html?uid=${obj.uid}">修改</a></td>
+                                            </tr>`
                     }
                 }
             }
             xhr.open('get','/myPro/list',true)
             xhr.send(null)
         }
+        
+        
+
+        
     </script>
 </body>
 </html>
