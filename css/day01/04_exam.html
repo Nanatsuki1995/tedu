@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <style>
+        a:link{color: black;text-decoration: none}
+        a:hover{color: red}
+        a:active{color: yellow}
+        a:visited{color: orange}
+        .inp{color: gray;font-style: italic}
+        .inp:active{font-style: normal}
+        .inp:focus{color:red}
+        /*权值*/
+        #de1{background: #000;color: #fff}
+        .content{background: #0ff;color: #f00}
+        div{background: #aff;color: #faa}
+        div .c2 span{color:#f00}
+        div div span{color: #0ff}
+        #d1,.c2,.c3{color: #f0f}
+        div>div>div>div>div>div>div>div>div>div>div>span{color: yellow}
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div><span class="s1">111</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c1" id="d1">
+        <div class="c2" id="d2">
+            <span class="c3" id="d3">买了佛伦</span>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <br><br><br><br><br>
+    <div id="de1" class="content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum ab soluta harum facere. Quae obcaecati tempora vel iure, ab deserunt esse quam sint similique ullam eos rem placeat molestiae illo.</div>
+
+
+    
+    <a href="http://www.bilibili.com">点开百度</a>
+    <input class="inp" type="text" value="">
+</body>
+</html>
