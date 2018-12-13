@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{
+            font-family: "simhei";
+        }
+        
+        #container1{
+            width: 609px;
+            height: 377px;
+            background-color: #e8e8e8;
+            position: relative;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        #container2{
+            width: 381px;
+            height: 377px;
+            background-color: #e8e8e8;
+            position: relative;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        #container3{
+            margin-right: 9px;
+            width: 377px;
+            height: 233px;
+            position: relative;
+            background: #e8e8e8;
+            overflow: hidden;
+            float: left;
+        }
+        #content1{
+            width: 245px;
+            height: 243px;
+            position: absolute;
+            top: 55px;
+            left: 65px;
+        }
+        #content2{
+            width: 245px;
+            height: 243px;
+            position: absolute;
+            top: 63px;
+            left: 24px;
+        }
+        #content3{
+            padding-top: 1em;
+            width: 149px;
+            height: 119px;
+            position: absolute;
+            top: 21px;
+            left: 33px;
+        }
+        .title{
+            font-size: 32px;
+            color: #333;
+        }
+        .title2{
+            font-size: 22px;
+            color: #333;
+        }
+        div>div>p{
+            font-size: 12px;
+            color: #666;
+        }
+        .pri{
+            margin-top: 24px
+        }
+        .img1{
+            position: absolute;
+            right: 30px;
+            top: 56px;
+            width: 390px;
+            height: 300px;
+            transition: 1s;
+            cursor: pointer;
+        }
+        .pri{
+            color: #0AA1ED;
+            font-size: 24px;
+            margin-bottom: 24px;
+        }
+        .pri2{
+            font-size: 22px;
+            color: #0AA1ED;
+            margin-bottom: 12px;
+        }
+        input{
+            width: 130px;
+            height: 40px;
+            background: linear-gradient(to bottom, #27b1f6 0%, #0aa1ed 100%);
+            border: 0;
+            color: #fff
+        }
+        .img1:hover{
+            position: absolute;
+            right: 20px;
+            top: 47px;
+            width: 429px;
+            height: 330px;
+        }
+        .img2{
+            position: absolute;
+            right: 25px;
+            bottom: 20px;
+            width: 292px;
+            height: 232px;
+            transition: 1s;
+            cursor: pointer;
+        }
+        .img2:hover{
+            position: absolute;
+            width: 321px;
+            height: 255px;
+            right: 15px;
+            bottom: 11px;
+        }
+        .img3{
+            position: absolute;
+            width: 198px;
+            height: 136px;
+            top: 40px;
+            right: 17px;
+            cursor: pointer;
+            transition: 1s;
+        }
+        .img3:hover{
+            position: absolute;
+            width: 218px;
+            height: 149px;
+            right: 7px;
+            top: 34px;
+        }
+        .d1{
+            width: 1010px;
+            margin: 20px auto;
+        }
+        .product{
+            height: 235px;
+            margin-right: 10px;
+            text-align: center;
+            background-color: #E8E8E8;
+            width: 198px;
+            position: relative;
+            overflow: hidden;
+            float: left;
+        }
+        .product>h2{
+            color: #333;
+            font-size: 12px;
+            font-weight: lighter;
+            text-align: center;
+        }
+        .product>p{
+            margin-top: 5px;
+            color: #0AA1ED;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .product>input{
+            width: 102px;
+            height: 28px;
+            position: absolute;
+            bottom: 10px;
+            left: 51px;
+        }
+        .product>img{
+            cursor: pointer;
+            transition: 1s;
+        }
+        .product .imge1{
+            width: 198px;
+            height: 136px;
+            position: absolute;
+        }
+        .product .imge1:hover{
+            width: 218px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="d1">
+        <div id="container1">
+            <div id="content1">
+                <p class="title">Apple MacBook Air系列</p>
+                <p>酷睿双核i5处理器|256GB SSD|8GB内存|英特尔HD显卡620含共享显卡内存</p>
+                <p class="pri">￥6988.00</p>
+                <input type="button" value="查看详情">
+            </div>
+            <img class="img1" src="./img/study_computer_img1.png" alt="">
+        </div>
+        <div id="container2">
+            <div id="content2">
+                <p class="title">小米Air 金属超轻薄</p>
+                <p>酷睿双核i5处理器|512GB SSD|2GB内存|英特尔HD独立显卡</p>
+                <p class="pri">￥3488.00</p>
+                <input type="button" value="查看详情">
+            </div>
+            <img class="img2" src="./img/study_computer_img2.png" alt="">
+        </div>
+        <div id="container3">
+            <div id="content3">
+                <p class="title2">联想E480C 轻薄系列</p>
+                <p class="pri2">￥5399.00</p>
+                <input type="button" value="查看详情">
+            </div>
+            <img class="img3" src="./img/study_computer_img3.png" alt="">
+        </div>
+        <div class="product">
+            <img class="imge1" src="./img/study_computer_img4.png" alt="">
+            <h2>华硕RX310 金属超极本</h2>
+            <p>￥4966.00</p>
+            <input type="button" value="查看详情">
+        </div>
+        <div class="product">
+            <img class="imge2" src="./img/study_computer_img5.png" alt="">
+            <h2>联想小新700 电竞版游戏本</h2>
+            <p>￥6299.00</p>
+            <input type="button" value="查看详情">
+        </div>
+        <div class="product">
+            <img class="imge3" src="./img/study_computer_img3.png" alt="">
+            <h2>戴尔灵越燃7000 轻薄窄边</h2>
+            <p>￥5199.00</p>
+            <input type="button" value="查看详情">
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>
