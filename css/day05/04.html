@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        div{
+            height: 200px;
+            width: 200px;
+        }
+        .d1{
+            background: #faa;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            z-index: 1;
+        }
+        .d2{
+            background: #ffa;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 2;
+        }
+        .d3{
+            background: #aaf;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 55px;
+            left: 55px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1"></div>
+    <div class="d2"><div class="d3"></div></div>
+    
+</body>
+</html>
