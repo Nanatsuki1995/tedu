@@ -7,29 +7,35 @@
         #parent{
             border: 1px solid #f00;
             display: flex;
-            /* flex-direction: row; */
-            /* flex-wrap: wrap; */
-            flex-flow: row-reverse wrap;
-            justify-content: center;
+            height: 300px;
+            align-items: stretch;
         }
         .d1,.d2,.d3{
             width: 200px;
             height: 200px;
+        }
+        .d1{
             background: #ffa;
+            /* flex-grow: 1; */
+            flex-shrink: 9;
         }
         .d2{
             background: #aaf;
+            /* flex-grow: 3; */
+            flex-shrink: 6;
         }
         .d3{
             background: #faf;
+            /* flex-grow: 6; */
+            flex-shrink: 2;
         }
     </style>
 </head>
 <body>
     <div id="parent">
-        <span class="d1">1</span>
-        <span class="d2">2</span>
-        <div class="d3">3</div>
+        <span class="d1"></span>
+        <span class="d2"></span>
+        <div class="d3"></div>
     </div>
 </body>
 </html>
