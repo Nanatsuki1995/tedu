@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0" />
+    <!-- 引入boot文件，引入顺序有要求 -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <style>
+        .breadcrumb-item + .breadcrumb-item::before{
+            content: "→"
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>进度条</h1>
+        <!-- 20%红色，50%黄色，100%绿色 -->
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated w-25 bg-danger"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated w-50 bg-warning"></div>
+            <div class="progress-bar progress-bar-striped progress-bar-animated w-100 bg-success"></div>
+        </div>
+        <!-- 条纹+动画进度条 -->
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success w-100"></div>
+        </div>
+        <!-- 条纹进度条 -->
+        <div class="progress">
+            <div class="progress-bar bg-warning w-75 progress-bar-striped"></div>
+        </div>
+        <!-- 普通进度条 -->
+        <div class="progress">
+            <div class="progress-bar bg-info w-50"></div>
+        </div>
+        <h1>面包屑导航</h1>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">首页</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">学习用品</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">笔记本电脑</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="#">Apple MacBook Air</a>
+            </li>
+        </ul>
+        <h1>分页</h1>
+        <ul class="pagination pagination-sm">
+            <li class="page-item disabled mr-2"><a href="#" class="page-link">上一页</a></li>
+            <li class="page-item active"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">下一页</a></li>
+        </ul>
+    </div>
+</body>
+</html>
