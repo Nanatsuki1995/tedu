@@ -1,0 +1,32 @@
+#d1 {
+  width: 10%; }
+
+p {
+  width: 1.11111in; }
+
+p::before {
+  content: "Microsoftyahei";
+  font-family: Arial; }
+
+p {
+  font: 10px/5px;
+  width: 500px;
+  height: 250px;
+  margin: 9px; }
+
+p::after {
+  content: "I ate 48 baozis"; }
+
+p {
+  color: #22364e; }
+
+div {
+  color: lime;
+  font-family: Microsoftyahei;
+  font-family: "Microsoftyahei"; }
+
+p {
+  width: 300px; }
+
+div {
+  border-radius: 50%; }
