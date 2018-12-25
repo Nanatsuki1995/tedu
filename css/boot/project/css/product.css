@@ -1,0 +1,24 @@
+.bg-menubar{
+    background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+}
+.div input{
+    float: left;
+    width: 25px;
+    height: 24px;
+    margin-left: 15px;
+}
+.my_input-w{
+    width: 1rem;
+    padding: 0;
+
+}
+.input-group-text{
+    width: 50%;
+    text-overflow: ellipsis;
+}
+.my_car-btn{
+    width: 1rem;
+}
+.list-group-item{
+    border-top: 1px dashed #080808
+}

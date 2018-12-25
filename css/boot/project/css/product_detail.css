@@ -1,0 +1,35 @@
+.breadcrumb-item + .breadcrumb-item::before{
+    content: '>';
+    font-weight: bold;    
+}
+.my_img_div{
+    width: 100%;
+}
+.my_img_div>ul>li{
+    margin: 0.5rem
+}
+.my_img_div>ul>li>img{
+    width: 5rem;
+}
+.my_font{
+    font-size: 34px
+}
+.my_font_small{
+    font-size: 15px;
+}
+.btn-outline-primary{
+    background-color: transparent;
+    background-image: none;
+    border-color: #ddd;
+    border-radius: 0;
+    margin: .1rem;
+}
+.btn-outline-primary:hover{
+    background-color: transparent;
+    background-image: none;
+    border-color: #0aa1ed;
+    color: #0aa1ed
+}
+.my_count_input-w{
+    width: 20%;
+}

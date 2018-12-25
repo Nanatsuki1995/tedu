@@ -123,5 +123,10 @@ body{
     }
 
 }
+.w_input{
+    width:20%;
+    text-align: center;
+    padding: 0;
+}
 
 
