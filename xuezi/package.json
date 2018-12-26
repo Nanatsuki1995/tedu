@@ -1,0 +1,31 @@
+{
+  "name": "xuezi",
+  "version": "1.0.0",
+  "description": "This is my exercise project of tedu",
+  "main": "index.js",
+  "scripts": {
+    "test": "node  ./test.js",
+    "start": "node  ./index.js",
+    "qidong": "node  ./index.js",
+    "stop": "node  ./stop.js",
+    "rebuild": "node  ./bin/build.js",
+    "build": "node ./node_modules/webpack/bin/webpack.js"
+  },
+  "keywords": [
+    "tedu",
+    "exercise",
+    "node",
+    "webpack"
+  ],
+  "author": "nanatsuki",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
