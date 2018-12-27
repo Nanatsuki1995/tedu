@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "     Hello        World        "
+        
+        function ltrim(str){
+            return str.replace(/^\s+/ig,() => '')
+        }
+
+        function rtrim(str) {
+            return str.replace(/\s+$/ig,() => '')
+        }
+
+        function trim(str) {
+            var s = str.replace(/\s+/ig,() => ' ')
+            return rtrim(ltrim(s))
+        }
+
+        console.log(ltrim(str))
+        console.log(rtrim(str))
+        console.log(trim(str))
+    </script>
+</body>
+</html>
