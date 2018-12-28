@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pZan() {
+            var n = 0
+            return function () {
+                n++
+                console.log(n)
+            }
+        }
+        
+        function pCai() {
+            var n = 0
+            return function () {
+                n++
+                console.log(n)
+            }
+        }
+
+        var zen = pZan()
+        var cai = pCai()
+
+        zen()
+        zen()
+        zen()
+        cai()
+        cai()
+        cai()
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //数据库: 紫烟  青天  明月
+
+
+
+
+
+    //ajax:[紫烟,青天,明月]
+    var kwords = ["紫烟", "青天", "明月"];
+
+    var msg = prompt("请输入消息内容");
+    //kwords.join("|")
+    //"紫烟|青天|明月"
+    var reg = new RegExp(kwords.join("|"));
+    //new RegExp("紫烟|青天|明月")
+    //等效于: /紫烟|青天|明月/
+    //var i=msg.search(reg);
+    //if(i!=-1){
+    if (reg.test(msg)) {//照样可以判断是否包含
+      document.write("<h1 style='color:red'>包含敏感词！不允许发送！</h1>");
+    } else {
+      document.write("李然说:" + msg);
+    }
+  </script>
+</body>
+
+</html>

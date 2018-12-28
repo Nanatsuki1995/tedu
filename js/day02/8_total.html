@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function 父母保管压岁钱() {
+            var total = 1000
+            return function (x) {
+                total = total - x
+                document.write(`花了${x}元，还剩${total}元<br>`)
+            } 
+        }
+        var 孩子花压岁钱 = 父母保管压岁钱()
+        total = 0
+        孩子花压岁钱(100)
+        孩子花压岁钱(300)
+        console.dir(孩子花压岁钱)
+    </script>
+</body>
+</html>
