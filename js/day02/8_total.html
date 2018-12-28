@@ -8,18 +8,19 @@
 </head>
 <body>
     <script>
-        function 父母保管压岁钱() {
+        function parent() {
             var total = 1000
             return function (x) {
+            //x为函数的参数
                 total = total - x
                 document.write(`花了${x}元，还剩${total}元<br>`)
             } 
         }
-        var 孩子花压岁钱 = 父母保管压岁钱()
+        var child = parent()
         total = 0
-        孩子花压岁钱(100)
-        孩子花压岁钱(300)
-        console.dir(孩子花压岁钱)
+        child(100)
+        child(300)
+        console.dir(child)
     </script>
 </body>
 </html>
