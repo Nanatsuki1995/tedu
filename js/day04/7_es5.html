@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        function f(n) {
+            if (n < 3) return 1
+            else{
+                // return arguments.callee(n-1) + arguments.callee(n-2)
+                
+                var f1 = 1,f2 = 1,fn
+                for (var i = 3;i <= n;i++) {
+                    fn = f1 + f2
+                    f1 = f2
+                    f2 = fn
+                }
+                return fn
+            }
+        }
+
+        console.log(f(1476))
+    </script>
+</body>
+</html>

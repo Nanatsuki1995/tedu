@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var eric = {
+            eid: 1001,
+            ename: "埃里克",
+            _age: 23
+        }
+
+        Object.defineProperties(eric,{
+            _age:{
+                enumerable: false,
+                configurable: false
+            },
+            age: {
+                get: function () {
+                    console.log('试图得到age的get')
+                    return this._age
+                },
+                set: function (v) {
+                    if (v >= 18 && v <= 65) {
+                        console.log('试图得到age的set')
+                        console.log(`Value=${v}`)
+                        this._age = v
+                    }else{
+                        throw Error('年龄超出范围')
+                    }
+                },
+                enumerable: true,
+                configurable: false
+            }
+        })
+
+        console.log(eric.age)
+        eric.age = 24
+        console.log(eric.age)
+        eric.age = -2
+    </script>
+</body>
+</html>
