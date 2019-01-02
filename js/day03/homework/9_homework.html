@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //1. 用外层函数包裹:要保护的变量和内层函数
+    var zan = (function () {
+      var n = 0;
+      //2. 外层函数将内层函数返回到外部
+      return function () {
+        n++;
+        document.write(`赞+1,共${n}个赞<br>`)
+      }
+    })();//3. 调用外层函数获得内层函数对象和一个闭包作用域对象
+    /*zan:function(){
+      n++;
+      document.write(`赞+1,共${n}个赞<br>`)
+    }[[scopes]]->{ n:0 }*/
+    //1. 用外层函数包裹:要保护的变量和内层函数
+    var cai = (function () {
+      var n = 0;
+      //2. 外层函数返回内层函数
+      return function () {
+        n++
+        document.write(`踩+1,共${n}个踩<br>`)
+      }
+    })()//3. 调用外层函数获得内层函数对象和闭包作用域对象
+    /*cai:function(){
+      n++
+      document.write(`踩+1,共${n}个踩<br>`)
+    }[[scopes]]->{ n:0 }*/
+    zan();//赞+1,共1个赞
+    zan();//赞+1,共2个赞
+    zan();//赞+1,共3个赞
+    cai();//踩+1,共1个踩
+    cai();//踩+1,共2个踩
+  </script>
+</body>
+
+</html>

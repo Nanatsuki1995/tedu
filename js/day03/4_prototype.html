@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student(sname,sage) {
+            this.sname = sname
+            this.sage = sage
+        }
+        var obj = {
+            intr: function () {
+                console.log(`I'm ${this.sname}, I'm ${this.sage}`)
+            },
+            className: '初一2班'
+        }
+        Student.prototype = obj
+        // Student.prototype.intr = function () {
+        //     console.log(`I'm ${this.sname}, I'm ${this.sage}`)
+        // }
+        // Student.prototype.className = "初一2班"
+        var ken = new Student('ken',22)
+        var nana = new Student('nana',20)
+        
+        console.log(ken)
+        console.log(nana)
+        ken.intr()
+        nana.intr()
+        console.log(ken.__proto__ === nana.__proto__)
+        console.log(ken.__proto__ === Student.prototype)
+        console.log(ken.className,nana.className)
+        // ken.className = "初二2班"
+        Student.prototype.className = "初二2班"
+        console.log(ken.className,nana.className)
+    </script>
+</body>
+</html>

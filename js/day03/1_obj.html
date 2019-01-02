@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var n = 10;
+    function fun() {
+      n++;
+      console.log(n);
+    }
+    //lilei: Li Lei
+    //       11
+    //       会自我介绍
+    var lilei = {
+      sname: "Li Lei",
+      sage: 11,
+      intr: function () {
+        console.log(`I'm ${this.sname}, I'm ${this.sage}`);
+      }
+    }
+    console.log(lilei.sage);//访问对象的属性
+    lilei.intr();//调用对象的方法
+    lilei.sage++;//12
+    console.log(lilei.sage);//12
+    lilei.intr();//I'm 11
+    console.log(lilei.height);
+    console.log(lilei["sname"]);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    'use strict'
+    var lilei = { sname: "Li Lei", sage: 11 };
+    //定义函数将一个旧对象克隆出一个新副本
+    function clone(obj) {
+      var newObj = {};//准备空对象等着接旧对象中克隆过来的每个属性
+      for (var key in obj) {//遍历旧对象obj
+        //把旧对象的key属性的值保存到newObj中同名属性中
+        // newObj.key = obj.key;
+        newObj[key] = obj[key];
+        // newObj["key"] = obj["key"];
+      }//循环结束后，旧对象obj中有几个属性，newObj中就有几个相同的属性
+      return newObj;//返回新值
+    }
+    var lilei2 = clone(lilei);
+    console.log(lilei);
+    console.log(lilei2);
+  </script>
+</body>
+
+</html>
