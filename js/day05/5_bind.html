@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function jump(){
+  console.log(`${this.sname}跳一次`);
+}
+var lilei={ sname:"Li Lei" }
+var hmm={ sname:"Han Meimei" }
+var lilei_jump=jump.bind(lilei);
+//lilei_jump:function(){
+//  console.log(`${lilei.sname}跳一次`);
+//}
+var hmm_jump=jump.bind(hmm);
+//hmm_jump:function(){
+//  console.log(`${hmm.sname}跳一次`);
+//}
+setInterval(lilei_jump,1000);
+setInterval(hmm_jump,1000);
+</script>
+</body>
+</html>

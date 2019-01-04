@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+"use strict";
+function Emp(eid,ename,salary,age){
+  Object.defineProperties(this,{
+    eid:{
+      value:eid,
+      writable:false,
+      enumerable:true
+    },
+    ename:{
+      value:ename,
+      writable:true,
+      enumerable:true
+    },
+    salary:{
+      value:salary,
+      writable:true,
+      enumerable:false
+    },
+    _age:{
+      writable:true,
+      enumerable:false
+    },
+  })
+  this.age=age;
+  //Object.preventExtensions(this);
+  Object.seal(this);
+}
+//Emp.prototype.age={
+Object.defineProperty(Emp.prototype,"age",{
+  get:function(){ return this._age; },
+  set:function(value){
+    if(value>=18&&value<=65)
+      this._age=value;
+    else throw Error("年龄超范围");
+  },
+  enumerable:true,
+  configurable:false
+});
+var eric=new Emp(1001,"埃里克",12000,25);
+//eric.eid=1002;
+//delete eric.ename;
+for(var key in eric){
+  console.log(`${key} : ${eric[key]}`);
+}
+//eric.age=-2;
+//eric自己没有age，就去Emp.prototype找
+//Emp.prototype刚好有一个访问器属性age
+//试图给访问器属性age赋值,自动触发set:
+//执行this._age=value
+//this->.前的eric，value就保存到eric._age中
+//eric.Age=-2;
+console.log(eric);
+</script>
+</body>
+</html>

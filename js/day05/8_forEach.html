@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+var arr=[1,2,3,4,5];
+//将原数组中每个元素值*2
+arr.forEach(function(elem,i,arr){
+  //elem*=2;
+  arr[i]=elem*2;
+  //arr[i]*=2;
+});
+console.log(arr);//[2,4,6,8,10]
+</script>
+</body>
+</html>
