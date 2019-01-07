@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function liang() {
+            return new Promise(function (open) {
+                console.log("亮起跑...")
+                setTimeout(function () {
+                    console.log("亮到达终点！")
+                    open()
+                },6000)
+            })
+        }
+
+        function ran() {
+            return new Promise(function (open) {
+                console.log("然起跑...")
+                setTimeout(function () {
+                    console.log("然到达终点！")
+                    open()
+                },4000)
+            })
+        }
+
+        function dong() {
+            console.log("东起跑...")
+            setTimeout(function () {
+                console.log("东到达终点！")
+            },2000)
+        }
+
+        liang()
+        .then(ran)
+        .then(dong)
+    </script>
+</body>
+
+</html>

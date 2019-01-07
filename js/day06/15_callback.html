@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
-<script>
-function liang(callback){//异步
-  console.log("亮起跑...");
-  setTimeout(function(){
-    console.log("亮到达终点!")
-  //亮结束后，承诺一定自动执行提前托付的任务
-    callback();
-  },6000)
-}
-function ran(callback){//异步
-  console.log("然起跑...");
-  setTimeout(function(){
-    console.log("然到达终点!");
-    callback();
-  },4000)
-}
-function dong(){//异步
-  console.log("东起跑...");
-  setTimeout(function(){
-    console.log("东到达终点!");
-  },2000)
-}
-liang(
-  //fun
-  function(){//亮的下一项任务
-    ran(
+  <script>
+    function liang(callback) {//异步
+      console.log("亮起跑...");
+      setTimeout(function () {
+        console.log("亮到达终点!")
+        //亮结束后，承诺一定自动执行提前托付的任务
+        callback();
+      }, 6000)
+    }
+    function ran(callback) {//异步
+      console.log("然起跑...");
+      setTimeout(function () {
+        console.log("然到达终点!");
+        callback();
+      }, 4000)
+    }
+    function dong() {//异步
+      console.log("东起跑...");
+      setTimeout(function () {
+        console.log("东到达终点!");
+      }, 2000)
+    }
+    liang(
       //fun
-      function(){//然的下一项任务
-        dong();
+      function () {//亮的下一项任务
+        ran(
+          //fun
+          function () {//然的下一项任务
+            dong();
+          }
+        );
       }
     );
-  }
-);
 
-</script>
+  </script>
 </body>
+
 </html>
