@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+//1. 将形参列表定义为对象语法: 
+function ajax({url,type,data}){
+  type=type||"get";//如果type是undefined就选get，如果type不是undefined，就依然使用type
+  document.write(`向服务端地址${url},发送${type}类型的请求<br>`);
+  if(data)
+    document.write(`携带参数:${data}<br>`);
+  else document.write(`不带参数<br>`);
+}
+//2. 调用时: 将传入的实参值放在对象结构中传入
+//url type data 三个参数都有
+ajax({
+  url:"http://localhost:3000/users/login",type:"post",
+  data:"uname=dingding&upwd=123456"
+});
+//只有第一个参数url
+ajax({
+  url:"http://localhost:3000/users/logout"
+})
+//只有url和data
+ajax({
+  url:"http://localhost:3000/products/getById",
+  data:"lid=5"
+});
+//只有url和type
+ajax({
+  url:"http://localhost:3000/users/upload",type:"post"
+})
+</script>
+</body>
+</html>
