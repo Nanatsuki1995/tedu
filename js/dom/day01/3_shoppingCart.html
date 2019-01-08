@@ -82,7 +82,7 @@
 				var n = parseInt(span.innerHTML)
 				if (btn.innerHTML == "+") {
 					n++
-				}else{
+				} else {
 					n--
 					if (n == 0) {
 						n = 1
@@ -91,8 +91,21 @@
 				span.innerHTML = n
 
 				var price = parseFloat(btn.parentNode.previousElementSibling.innerHTML.slice(1))
-				var subtotal = price*n
+				var subtotal = price * n
 				btn.parentNode.nextElementSibling.innerHTML = `￥${subtotal.toFixed(2)}`
+				var tds = table.querySelectorAll(
+					"tbody>tr>td:last-child"
+				);
+				console.log(tds);
+				var total = 0;
+				for (var td of tds) {
+					total += parseFloat(
+						td.innerHTML.slice(1)
+					);
+				}
+				table.querySelector(
+					"tfoot>tr>td:last-child"
+				).innerHTML = `¥${total.toFixed(2)}`;
 			}
 		}
 	</script>
