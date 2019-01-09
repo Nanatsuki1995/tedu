@@ -41,7 +41,26 @@
             { "name": '唐山市', "value": 304 },
             { "name": '秦皇岛市', "value": 304 }]
         ];
-
+        var selProvs = document.getElementsByName("provs")[0]
+        selProvs.onchange = function () {
+            var sel = this
+            var i = sel.selectedIndex
+            var selCts = document.getElementsByName("cities")[0]
+            if (i > 0) {
+                i--
+                var cts = cities[i]
+                var frag = document.createDocumentFragment()
+                frag.appendChild(new Option("-请选择-"))
+                for (const c of cts) {
+                    frag.appendChild(new Option(c.name))
+                }
+                selCts.innerHTML = ''
+                selCts.appendChild(frag)
+                selCts.className = ''
+            } else {
+                selCts.className = "hide"
+            }
+        }
     </script>
 </body>
 

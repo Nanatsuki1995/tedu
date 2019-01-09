@@ -49,6 +49,24 @@
 			div.className = ''
 			txt.className = "txt_focus"
 		}
+
+		txtName.onblur = function () {
+			vali(this,/^\w{1,10}$/)
+		}
+
+		function vali(txt, reg) {
+			txt.className = ''
+			var div = txt.parentNode.nextElementSibling.children[0]
+			if (reg.test(txt.value)) {
+				div.className = 'vali_success'
+			} else {
+				div.className = 'vali_fail'
+			}
+		}
+
+		txtPwd.onblur = function () {
+			vali(this,/^\d{6}$/)
+		}
 	</script>
  </body>
 </html>

@@ -27,7 +27,37 @@
             { "ename": "John", "salary": 13000, "age": 28 },
             { "ename": "Mary", "salary": 12000, "age": 25 }
         ];
+        var table = document.createElement("table")
+        var thead = table.createTHead()
+        var tr = thead.insertRow()
+        var firstEmp = json[0]
+        for (var key in firstEmp) {
+            var th = tr.insertCell()
+            th.innerHTML = key
+        }
+        var td = tr.insertCell()
+        td.innerHTML = 'delete'
+        var tbody = table.createTBody()
+        for (const emp of json) {
+            var tr = tbody.insertRow()
+            for (var key in emp) {
+                var td = tr.insertCell()
+                td.innerHTML = emp[key]
+            }
+            var td = tr.insertCell()
+            td.innerHTML = `<button></button>`
+            td.children[0].onclick = function () {
+                var btn = this
+                var tr = btn.parentNode.parentNode
+                console.log(tr)
+                var ename = tr.children[0].innerHTML
+                if (confirm(`是否继续删除 ${ename}?`)) {
+                    table.deleteRow(tr.rowIndex)
+                }
+            }
+        }
 
+        document.getElementById("data").appendChild(table)
     </script>
 </body>
 
