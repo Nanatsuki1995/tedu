@@ -7,9 +7,15 @@
 </head>
 <body>
 	<span>5秒钟后自动关闭</span><br>
-	<a >留在本页</a>
+	<a href="jacascript:myClose()">留在本页</a>
   <script>
-	  
+	  function task() {
+      close()
+    }
+    var n = setTimeout(task,5000)
+    function myClose() {
+      clearTimeout(n)
+    }
   </script>
 </body>
 </html>
