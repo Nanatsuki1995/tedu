@@ -13,5 +13,19 @@
 		<input type="checkbox">我同意本站的使用条款<br>
 		<input type="submit" value="提交注册信息" disabled/>
 	</form>
+	<script src="./js/jquery-1.11.3.js"></script>
+	<script>
+		var $chb = $(":checkbox")
+		$chb.click(function(){
+			var $chb = $(this)
+			var $inputs = $(":input:not(:checkbox)")
+			$inputs.prop("disabled",!$chb.is(":checked"))
+			if ($chb.is(":checked")) {
+				$inputs.prop("disabled",false)
+			} else {
+				$inputs.prop("disabled",true)
+			}
+		})
+	</script>
  </body>
 </html>

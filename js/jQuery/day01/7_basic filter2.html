@@ -5,17 +5,19 @@
     <meta charset="utf-8" />
     <title>...</title>
     <style>
-        ul{
+        ul {
             list-style: none;
         }
-        ul>li{
+
+        ul>li {
             float: left;
-            border:1px solid #aaa;
+            border: 1px solid #aaa;
             width: 60px;
             height: 30px;
             text-align: center;
             line-height: 30px
         }
+
         /* ul>li:first-child{
             border-radius: 4px 0 0 4px
         }
@@ -38,15 +40,69 @@
     </ul>
     <script src="./js/jquery-1.11.3.js"></script>
     <script>
-        $("ul>li:first").css("border-radius","4px 0 0 4px")
-        // $("ul>li:gt(0)").css("border-left","0")
-        .nextAll().css("border-left","0")
-        // $("ul>li:last").css("border-radius","0 4px 4px 0")
-        .last().css("border-radius","0 4px 4px 0")
+        $("ul>li:first").css("border-radius", "4px 0 0 4px")
+            // $("ul>li:gt(0)").css("border-left","0")
+            .nextAll().css("border-left", "0")
+            // $("ul>li:last").css("border-radius","0 4px 4px 0")
+            .last().css("border-radius", "0 4px 4px 0")
     </script>
     <div style="clear:both"></div>
 
     <h1>实现表格隔行变色效果</h1>
+    <style>
+        table {
+            width: 450px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table>thead {
+            border-bottom: 3px solid #555
+        }
+
+        /*
+    table>tbody>tr+tr{
+        border-top:1px solid #555
+    }
+    table>tbody>tr:nth-child(2n){
+        background:green;
+    }
+    */
+    </style>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>亮</td>
+                <td>成</td>
+                <td>@liang</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>然</td>
+                <td>李</td>
+                <td>@ran</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>东</td>
+                <td>张</td>
+                <td>@dong</td>
+            </tr>
+        </tbody>
+        <script>
+            $("table>tbody>tr:gt(0)").css("border-top","1px solid #555")
+            $("table>tbody>tr:odd").css("background","green")
+        </script>
+    </table>
 </body>
 
 </html>
