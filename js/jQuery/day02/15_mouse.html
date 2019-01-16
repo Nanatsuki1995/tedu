@@ -15,10 +15,14 @@
 		</div>
     <script src="js/jquery-1.11.3.js"></script>
     <script>
-			//分别使用mouseover和mouseenter为d1绑定鼠标进入事件
-      
-      //证明hover使用的是mouseover还是mouseenter
+		//分别使用mouseover和mouseenter为d1绑定鼠标进入事件
+		$("#d1").mouseenter(function(){
+			console.log("进入d1")
+		}).mouseleave(function(){
+			console.log("移除d1")
+		})
+    	//证明hover使用的是mouseover还是mouseenter
 
-		</script>
+	</script>
 	</body>
 </html>

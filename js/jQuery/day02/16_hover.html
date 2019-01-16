@@ -25,7 +25,17 @@
 	</div>
 	<script src="js/jquery-1.11.3.js"></script>
 	<script>
-    
+		$("#target").hover(
+			// function(){
+			// 	$(this).addClass("hover")
+			// },
+			// function(){
+			// 	$(this).removeClass("hover")
+			// }
+			function(){
+				$(this).toggleClass("hover")
+			}
+		)
 	</script>
  </body>
 </html>

@@ -28,9 +28,13 @@
     console.log('断开到服务器的连接....')
   )
 
-  $('#bt99').click(e=>
+  $('#bt99').click(function(){
     //使用JS顺序触发前三个按钮的单击事件即可
-  )
+    /*$("#bt0").click();
+    $("#bt1").click();
+    $("#bt2").click();*/
+    $("#bt0,#bt1,#bt2").click()
+  })
 </script>
 </body>
 </html>
