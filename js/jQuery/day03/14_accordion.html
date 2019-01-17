@@ -40,11 +40,9 @@
 		<div class="content fade">一个男人和一群女人的故事: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus minima quidem aspernatur eligendi optio cupiditate minus nam expedita? Aliquid veritatis doloribus maxime vel dicta illo unde iusto qui quasi doloremque.</div>
 	</div>
 	<script src="js/jquery-1.11.3.js"></script>
-	<script>
-		$(".accordion").on("click",".title",e=>
-      $(e.target).next(".content").toggleClass("in")
-        .siblings(".content").removeClass("in")
-    );
-	</script>
+  <script src="./js/jquery-ui.js"></script>
+  <script>
+    $("#my-accordion").accordion()
+  </script>
  </body>
 </html>
