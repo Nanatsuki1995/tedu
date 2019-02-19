@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h3>退出页</h3>
+    <script>
+      //1:清除 sessionStorage uname
+      sessionStorage.removeItem("uname");
+      //2:3s 跳转  05_index.html
+      alert("退出登录");
+      setTimeout(function(){
+        location.href = "05_index.html";
+      },3000);
+    </script>
+</body>
+</html>

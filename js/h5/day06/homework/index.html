@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="../../day01/src/res/t.png" id="t"/>
+    <hr />
+ <div id="container">
+   <img src="../../day01/src/res/p3.png" id="p1" />
+   <img src="../../day01/src/res/p4.png" id="p2" />
+   <img src="../../day01/src/res/p5.png" id="p3" />
+ </div>
+ <script>
+    //0:创建全局变量pid  保存拖动小飞机id
+    var pid = 0;
+    //1:获取回收站元素
+    var t = document.getElementById("t");
+    //2:获取所有小飞机元素
+    var list = document.querySelectorAll("#container img");
+    //3:创建循环遍历小飞机元素
+    for(var item of list){
+    //3.1:为每架小飞机绑定拖动源对象三个事件
+    //3.2:其中在拖动开始将当前小飞机id保存全局变量pid中
+       item.ondragstart = function(){pid=this.id}
+       item.ondrag = function(){}
+       item.ondragend = function(){}
+    }
+    //4:为回收站绑定四个事件   
+  t.ondragenter = function(){}
+  t.ondragover = function(e){e.preventDefault();}
+  t.ondragleave = function(){}
+  t.ondrop = function(){
+    //4.1:其中在拖动释放时获取pid中小飞机id
+    var plan = document.getElementById(pid)
+    //4.2:依据id删除小飞机
+    plan.remove();
+  }
+
+ </script>
+</body>
+</html>

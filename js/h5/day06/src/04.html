@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h3>04.html 获取数据</h3>
+    <script>
+    //15:41  先运行03.html  
+    var rs = sessionStorage.getItem("name");
+    console.log(rs);
+    rs = sessionStorage.getItem("car1");
+    console.log(rs);
+    console.log(sessionStorage.length);
+    console.log(sessionStorage.key(0));
+    sessionStorage.removeItem("name");
+    //sessionStorage.clear();
+
+    </script>
+</body>
+</html>

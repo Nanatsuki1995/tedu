@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h3>09.html 获取数据</h3>
+    <script>
+      console.log(localStorage.getItem("name"));
+      console.log(localStorage.getItem("age"));
+      //监听修改localStorage数据
+      window.onstorage = function(){
+        //如果数据发生修改触发事件 
+        //重新获取新数据
+        console.log(localStorage.getItem("name"));
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <!--1:数值输入框-->
+    请输入: <input type="number" id="num" />
+    <br />
+    <!--2:按钮-->
+    <button id="btn">开始计算累加和</button>
+    <!--3:显示结果div-->
+    <div id="msg"></div>
+    <script>
+       //4:获取元素 input button div
+       var num = document.getElementById("num");
+       var btn = document.getElementById("btn");
+       var msg = document.getElementById("msg");
+       //5:为按钮绑定点击事件
+       btn.onclick = function(){
+        //6:创造Worker执行02.js 程序
+        var w = new Worker("js/02.js");
+        //7:将用户输入数值发送 02.js
+        w.postMessage(num.value);
+        //8:接收02.js返回结果并且显示 div
+        w.onmessage = function(e){
+          msg.innerHTML = e.data;
+        }
+       }
+    </script>
+</body>
+</html>
